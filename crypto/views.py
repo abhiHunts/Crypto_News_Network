@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.decorators.csrf import requires_csrf_token
+from django.views.decorators.csrf import csrf_protect
 
 
 
@@ -17,7 +17,7 @@ def home(request):
    
     return render(request, 'home.html', {'api':api, 'price':price})
 
-@requires_csrf_token
+@csrf_protect
 def prices(request):
 
     if request.method == 'POST':
